@@ -13,7 +13,7 @@ fi
 
 # Heroku Postgres
 if [ "$DATABASE_URL" ]; then
-    if [[ $string == *"?"* ]]; then
+    if [[ $DATABASE_URL == *"?"* ]]; then
         # if DATABASE_URL already has a query string don't mess with it
         export MB_DB_CONNECTION_URI="$DATABASE_URL"
     else

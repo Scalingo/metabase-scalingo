@@ -1,6 +1,14 @@
-# Deploy metabase on Scalingo
+![Metabase](metabase.png)
 
-## Steps to deploy metabase
+# Deploy Metabase on Scalingo
+
+## One-click deployment
+
+Run your own Metabase instance with one click.
+
+[![Deploy](https://cdn.scalingo.com/deploy/button.svg)](https://my.scalingo.com/deploy?source=https://github.com/Scalingo/metabase-scalingo#master)
+
+## Steps to deploy Metabase manually
 
 1. Create an application on Scalingo
 
