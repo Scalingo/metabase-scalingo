@@ -1,3 +1,5 @@
+![Metabase](metabase.png)
+
 # Deploy Metabase on Scalingo
 
 ## One-click deployment
