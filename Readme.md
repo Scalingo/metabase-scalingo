@@ -4,7 +4,7 @@
 
 Run your own Metabase instance with one click.
 
-[![Deploy](https://cdn.scalingo.com/deploy/button.svg)](https://my.scalingo.com/deploy)
+[![Deploy](https://cdn.scalingo.com/deploy/button.svg)](https://my.scalingo.com/deploy?source=https://github.com/Scalingo/metabase-scalingo#master)
 
 ## Steps to deploy Metabase manually
 
