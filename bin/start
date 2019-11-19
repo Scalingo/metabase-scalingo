@@ -92,16 +92,17 @@ fi
 
 if [ -n "$HEROKU" ]; then
     echo "  -> Heroku detected"
+    MAX_METASPACE_SIZE=${MAX_METASPACE_SIZE:-130m}
     # Set a few other options to minimize memory usage as much as possible.
     JAVA_OPTS+=" -XX:+UnlockExperimentalVMOptions"
-    JAVA_OPTS+=" -XX:+UseCGroupMemoryLimitForHeap" # Tell the JVM to use container info to set heap limit -- see https://devcenter.heroku.com/articles/java-memory-issues#configuring-java-to-run-in-a-container
-    JAVA_OPTS+=" -XX:-UseGCOverheadLimit"          # Disable limit to amount of time spent in GC. Better slow than not working at all
-    JAVA_OPTS+=" -XX:+UseCompressedOops"           # Use 32-bit pointers. Reduces memory usage
-    JAVA_OPTS+=" -XX:+UseCompressedClassPointers"  # Same as above. See also http://blog.leneghan.com/2012/03/reducing-java-memory-usage-and-garbage.html
-    JAVA_OPTS+=" -XX:MaxMetaspaceSize=130m"        # Set a hard limit for the Metaspace (classes and other stuff), don't let it get any bigger
-    JAVA_OPTS+=" -Xverify:none"                    # Skip bytecode verification, the Heroku buildpack comes from us so it's already verified. Speed up launch slightly
-    JAVA_OPTS+=" -XX:+UseG1GC"                     # G1GC seems to use slightly less memory in my testing...
-    JAVA_OPTS+=" -XX:+UseStringDeduplication"      # Especially when used in combination with string deduplication
+    JAVA_OPTS+=" -XX:+UseCGroupMemoryLimitForHeap"         # Tell the JVM to use container info to set heap limit -- see https://devcenter.heroku.com/articles/java-memory-issues#configuring-java-to-run-in-a-container
+    JAVA_OPTS+=" -XX:-UseGCOverheadLimit"                  # Disable limit to amount of time spent in GC. Better slow than not working at all
+    JAVA_OPTS+=" -XX:+UseCompressedOops"                   # Use 32-bit pointers. Reduces memory usage
+    JAVA_OPTS+=" -XX:+UseCompressedClassPointers"          # Same as above. See also http://blog.leneghan.com/2012/03/reducing-java-memory-usage-and-garbage.html
+    JAVA_OPTS+=" -XX:MaxMetaspaceSize=$MAX_METASPACE_SIZE" # Set a hard limit for the Metaspace (classes and other stuff), don't let it get any bigger
+    JAVA_OPTS+=" -Xverify:none"                            # Skip bytecode verification, the Heroku buildpack comes from us so it's already verified. Speed up launch slightly
+    JAVA_OPTS+=" -XX:+UseG1GC"                             # G1GC seems to use slightly less memory in my testing...
+    JAVA_OPTS+=" -XX:+UseStringDeduplication"              # Especially when used in combination with string deduplication
 fi
 
 # Other Java options
