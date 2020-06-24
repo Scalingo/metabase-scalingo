@@ -25,7 +25,7 @@ scalingo -a my-metabase addons-add postgresql postgresql-starter-512
 3. Configure multi-buildpack in the app environment
 
 ```
-scalingo -a my metabase env-set 'BUILDPACK_URL=https://github.com/Scalingo/multi-buildpack'
+scalingo -a my-metabase env-set 'BUILDPACK_URL=https://github.com/Scalingo/multi-buildpack'
 ```
 
 4. Clone this repository
