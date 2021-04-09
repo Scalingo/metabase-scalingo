@@ -9,7 +9,11 @@
       "description": "Buildpack used to deploy Metabase",
       "value": "https://github.com/Scalingo/multi-buildpack.git",
       "required": true
-    }
+    },
+    "MAX_METASPACE_SIZE": {
+      "description": "Control max memory available",
+      "value": "512m"
+    },
   },
   "addons": ["postgresql:postgresql-starter-512"]
 }
