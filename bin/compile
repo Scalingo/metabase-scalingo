@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -eu
+
+METABASE_DIR="$1/target/uberjar"
+METABASE_PLUGINS_DIR="$METABASE_DIR/plugins"
+METABASE_CSV_PLUGIN_URL="https://github.com/Markenson/csv-metabase-driver/releases/download/1.1.0/csv.metabase-driver.jar"
+
+mkdir -p $METABASE_PLUGINS_DIR
+
+if [ "true" == $ENABLE_METABASE_CSV_PLUGIN ]
+then
+    echo -n "- Install CSV plugin"
+    cd $METABASE_CSV_PLUGIN_URL
+    wget $METABASE_CSV_PLUGIN_URL    
+fi
