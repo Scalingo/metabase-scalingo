@@ -10,7 +10,7 @@ mkdir -p $METABASE_PLUGINS_DIR
 
 if [ "true" == $ENABLE_METABASE_CSV_PLUGIN ]
 then
-    echo -n "- Install CSV plugin"
+    echo -n "- Install CSV plugin : "
     cd $METABASE_PLUGINS_DIR
     wget $METABASE_CSV_PLUGIN_URL    
     echo "Done"
