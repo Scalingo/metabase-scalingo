@@ -13,4 +13,5 @@ then
     echo -n "- Install CSV plugin"
     cd $METABASE_CSV_PLUGIN_URL
     wget $METABASE_CSV_PLUGIN_URL    
+    echo "Done"
 fi
