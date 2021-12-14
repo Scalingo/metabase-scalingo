@@ -49,7 +49,7 @@ git push scalingo master
 
 # Update Metabase on Scalingo
 
-To upgrade to the latest version of Metabase, you only need to redeploy it.
+To upgrade to the latest version of Metabase, you only need to redeploy it, this will retrieve the latest version avaible on [the Metabase buildpack](https://github.com/metabase/metabase-buildpack).
 
 ## One-click deployment
 
