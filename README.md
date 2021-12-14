@@ -46,3 +46,19 @@ scalingo -a my-metabase git-setup
 ```
 git push scalingo master
 ```
+
+# Update Metabase on Scalingo
+
+To upgrade to the latest version of Metabase, you only need to redeploy it, this will retrieve the latest version avaible on [the Metabase buildpack](https://github.com/metabase/metabase-buildpack).
+
+## One-click deployment
+
+`scalingo -a  my-metabase deploy https://github.com/Scalingo/metabase-scalingo/archive/refs/heads/master.tar.gz`
+
+## Steps to update Metabase manually
+
+```
+cd metabase-scalingo
+git pull origin master
+git push scalingo master
+```
