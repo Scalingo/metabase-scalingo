@@ -12,7 +12,7 @@
     },
     "MAX_METASPACE_SIZE": {
       "description": "Control max memory available",
-      "value": "512m"
+      "value": "200m"
     }
   },
   "addons": ["postgresql:postgresql-starter-512"]
