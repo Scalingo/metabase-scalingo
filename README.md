@@ -52,11 +52,29 @@ $ git push scalingo master
 The following environment variables are available for you to adjust, depending
 on your needs:
 
-| Name                 | Description                                                                              | Default value                                   |
-| -------------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| `BUILDPACK_URL`      | URL of the buildpack to use.                                                             | https://github.com/Scalingo/multi-buildpack.git |
-| `DATABASE_URL`       | URL of your database addon. **Only available if you have a database addon provisioned**. | Provided by Scalingo                            |
-| `MAX_METASPACE_SIZE` | Maximum amount of memory allocated to Java Metaspace[^1].                                | `512m` (512MB)                                  |
+| `BUILDPACK_URL` |                                                 |
+| --------------: | ----------------------------------------------- |
+| Description     | URL of the buildpack to use.                    |
+| Required        | Yes                                             |
+| Default         | https://github.com/Scalingo/multi-buildpack.git |
+
+| `DATABASE_URL` |                                                                                         |
+| -------------: | --------------------------------------------------------------------------------------- |
+| Description    | URL of the database addon. **Only available if you have a database addon provisioned.** |
+| Required       | No                                                                                      |
+| Default        | Provided by Scalingo.                                                                   |
+
+| `MAX_METASPACE_SIZE` |                                                           |
+| -------------------: | --------------------------------------------------------- |
+| Description          | Maximum amount of memory allocated to Java Metaspace[^1]. |
+| Required             | No                                                        |
+| Default              | `512m` (512MB)                                            |
+
+| `ENABLE_METABASE_CSV_PLUGIN` |                                                                                         |
+| ---------------------------: | --------------------------------------------------------------------------------------- |
+| Description                  | Whether to load the CSV driver plugin for Metabase or not.                              |
+| Required                     | No                                                                                      |
+| Default                      | `false` - **When defined**, anything but `false`, `FALSE` and `0` is considered `true`. |
 
 Metabase also [supports many environment variables](https://www.metabase.com/docs/latest/operations-guide/environment-variables.html).
 

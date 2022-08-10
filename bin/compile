@@ -2,15 +2,34 @@
 
 set -eu
 
-METABASE_PLUGINS_DIR="$1/plugins"
-METABASE_CSV_PLUGIN_URL="https://github.com/Markenson/csv-metabase-driver/releases/download/v1.3.1/csv.metabase-driver.jar"
+metabase_plugin_csv_url="https://github.com/Markenson/csv-metabase-driver/releases/download/%s/csv.metabase-driver.jar"
+metabase_plugin_csv_version="v1.3.1"
 
-mkdir -p $METABASE_PLUGINS_DIR
 
-if [ "true" == $ENABLE_METABASE_CSV_PLUGIN ]
+is_true() {
+    if [[ "$1" = 0 ]]
+    then
+        false
+    elif [[ -z "$1" ]]
+    then
+        false
+    elif [[ "$1" =~ [Ff][Aa][Ll][Ss][Ee] ]]
+    then
+        false
+    fi
+}
+
+
+metabase_plugins_dir="${1}/plugins"
+mkdir -p "${metabase_plugins_dir}"
+
+
+printf -v mb_plugin_csv_url "${metabase_plugin_csv_url}" "${metabase_plugin_csv_version}"
+
+if is_true "${ENABLE_METABASE_CSV_PLUGIN}"
 then
     echo -n "- Install CSV plugin : "
-    cd $METABASE_PLUGINS_DIR
-    wget $METABASE_CSV_PLUGIN_URL    
+    cd "${metabase_plugins_dir}"
+    curl --location --remote-name "${mb_plugin_csv_url}"
     echo "Done"
 fi

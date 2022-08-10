@@ -13,6 +13,10 @@
     "MAX_METASPACE_SIZE": {
       "description": "Control max memory available",
       "value": "512m"
+    },
+    "ENABLE_METABASE_CSV_PLUGIN": {
+      "description": "Whether to load the CSV driver plugin or not",
+      "value": "false"
     }
   },
   "addons": ["postgresql:postgresql-starter-512"]
