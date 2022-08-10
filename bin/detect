@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "Metabase Scalingo"
+exit 0

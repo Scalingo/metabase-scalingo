@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -eu
+
+METABASE_PLUGINS_DIR="$1/plugins"
+METABASE_CSV_PLUGIN_URL="https://github.com/Markenson/csv-metabase-driver/releases/download/v1.3.1/csv.metabase-driver.jar"
+
+mkdir -p $METABASE_PLUGINS_DIR
+
+if [ "true" == $ENABLE_METABASE_CSV_PLUGIN ]
+then
+    echo -n "- Install CSV plugin : "
+    cd $METABASE_PLUGINS_DIR
+    wget $METABASE_CSV_PLUGIN_URL    
+    echo "Done"
+fi
