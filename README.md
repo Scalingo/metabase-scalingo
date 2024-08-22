@@ -76,6 +76,12 @@ it with the following command:
 $ scalingo --app my-metabase deploy https://github.com/Scalingo/metabase-scalingo/archive/refs/heads/master.tar.gz
 ```
 
+If you are facing the `create archive deployment: * git_ref → can't be blank` error, you may need to specify the version explicitly:
+
+```bash
+$ scalingo --app my-metabase deploy https://github.com/Scalingo/metabase-scalingo/archive/refs/heads/master.tar.gz v1.0.0
+```
+
 ## Updating After Deploying Using Scalingo's Command Line Tool
 
 ```bash
