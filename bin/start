@@ -110,4 +110,6 @@ JAVA_OPTS+=" -server"                  # Run in server mode. This is the default
 JAVA_OPTS+=" -Djava.awt.headless=true" # don't try to start AWT. Not sure this does anything but better safe than wasting memory
 JAVA_OPTS+=" -Dfile.encoding=UTF-8"    # Use UTF-8
 
+JAVA_OPTS+=" --add-opens java.base/java.nio=ALL-UNNAMED" # Fix snowflake JDBC / Arrow issue
+
 exec java $JAVA_OPTS -jar ./target/uberjar/metabase.jar
