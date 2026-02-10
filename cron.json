@@ -2,7 +2,7 @@
   "jobs": [
     {
       "command": "0 3 * * * sh /app/scripts/database-import.sh",
-      "size": "S"
+      "size": "M"
     }
   ]
 }
